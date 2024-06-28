@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  vsftpd-machine:
+    image: cyberforgeacademy/ethical-hacking:vulnerableftp
+    container_name: ftp-container
+    networks:
+      default:
+        ipv4_address: 172.19.0.2
+
+  ssh-machine:
+    image: cyberforgeacademy/ethical-hacking:sshhost
+    container_name: ssh-container
+    networks:
+      default:
+        ipv4_address: 172.19.0.3
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16
